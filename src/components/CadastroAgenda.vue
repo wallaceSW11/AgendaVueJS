@@ -1,7 +1,7 @@
 <template>   
-    <div>
+    <div style="background-color: #E6E6E6">
           <!-- color="blue darken-3" -->
-          <v-toolbar color="blue light white--text" height="40px">
+          <v-toolbar color="secondary light white--text" height="40px">
             <v-toolbar-title>Cadastro agenda</v-toolbar-title>
           </v-toolbar>
           <v-container grid-list-md text-xs-center>
@@ -35,9 +35,9 @@
     
            <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn dark color="blue " @click="gravarAgenda">Gravar</v-btn>
-            <v-btn color="blue darken-1" flat @click="abrirTelaRecebimento()">Recebimento</v-btn>
-            <v-btn color="blue darken-1" flat @click="close">Cancelar</v-btn>
+            <v-btn dark color="primary " @click="gravarAgenda">Gravar</v-btn>
+            <v-btn color="primary darken-1" flat @click="abrirTelaRecebimento()">Recebimento</v-btn>
+            <v-btn color="primary darken-1" flat @click="close">Cancelar</v-btn>
           </v-card-actions>
     
     
@@ -60,6 +60,7 @@ export default {
   },
   methods: {
     gravarAgenda(){
+      this.$router.push({name:'agenda'})
 
     },
     abrirTelaRecebimento(){

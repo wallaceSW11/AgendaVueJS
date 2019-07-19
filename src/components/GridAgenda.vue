@@ -8,11 +8,11 @@
     class="elevation-1"
     hide-actions
   >    
+  <!-- <v-icon small class="mr-2" @click="editItem(props.item)">edit</v-icon> -->
     <template v-slot:items="props">
       <td width="10px">{{ props.item.horario }}</td>      
       <td class="text-xs-center">{{ props.item.cliente1}}</td>      
-      <td class="text-xs-left"> <router-link :to="{name: 'cadastroAgenda'}"><v-icon small class="mr-2">edit</v-icon> </router-link>
-                                <v-icon small class="mr-2" @click="editItem(props.item)">edit</v-icon>
+      <td class="text-xs-left"> <router-link :to="{name: 'cadastroAgenda'}"><v-icon small class="mr-2">edit</v-icon> </router-link>                                
                                 <v-icon small @click="deleteItem(props.item)">delete</v-icon>
                                 <v-icon small class="mr-2" @click="abrirTelaRecebimento()"> attach_money</v-icon></td>      
       <td class="text-xs-center">{{ props.item.cliente2 }}</td>      

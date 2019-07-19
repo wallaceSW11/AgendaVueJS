@@ -1,8 +1,8 @@
 <template>
   <v-app id="inspire">
     <!-- menu superior -->
-
-    <v-toolbar :clipped-left="$vuetify.breakpoint.lgAndUp" color="blue darken-3" dark app fixed>
+<!-- color="blue darken-3"   color="grey darken-3" -->
+    <v-toolbar :clipped-left="$vuetify.breakpoint.lgAndUp" color="primary" dark app fixed>
       <v-toolbar-side-icon @click.stop.prevent="mini = !mini"></v-toolbar-side-icon>
       <v-toolbar-title>Schedule</v-toolbar-title>
       <v-spacer></v-spacer>
