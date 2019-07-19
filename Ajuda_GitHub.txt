@@ -1,0 +1,28 @@
+
+Criar o Repositório no GitHub e copiar o SSH
+
+Acessar a pasta desejada local, botão direito, abrir Git Bash e digitar:
+
+git init
+
+depois
+
+git remote add origin (cole arqui o SSH - sem ())
+
+
+depois
+
+git add *
+
+
+depois
+
+git commit -m "escreva a mensagem"
+
+
+depois
+
+git push -u origin master
+
+
+Pronto
