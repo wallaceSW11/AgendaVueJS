@@ -14,12 +14,21 @@
       </template>
 
       <template v-slot:footer>
-        <td>Totais:</td>
-        <td></td>
-        <td>{{quantidadeTotalAgenda}}</td>
-        <td></td>
-        <td>{{valorTotalAgenda}}</td>
-        <td></td>
+        <tr>
+          <td class="text-xs-left" colspan="6">
+            <v-btn outline small fab color="primary" @click="addProduto()">
+              <v-icon dark>add</v-icon>
+            </v-btn>            
+          </td>
+        </tr>
+        <tr>
+          <td>Totais:</td>
+          <td></td>
+          <td>{{quantidadeTotalAgenda}}</td>
+          <td></td>
+          <td>{{valorTotalAgenda}}</td>
+          <td></td>
+        </tr>
       </template>
     </v-data-table>
   </v-flex>
@@ -84,9 +93,11 @@ export default {
     ],
     valorTotalAgenda: "55,00",
     quantidadeTotalAgenda: "2"
-  })
-  // created () {
-  //     this.initialize()
-  // }
+  }),
+  methods: {
+    addProduto(){
+      this.$router.push({name:'cadastroAgendaProduto'})
+    }
+  }
 };
 </script>

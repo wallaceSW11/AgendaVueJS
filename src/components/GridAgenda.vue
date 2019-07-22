@@ -1,7 +1,9 @@
 <template>
-  <div>
-   <p>Agenda</p>
+  <div class="background">
+    <titulo titulo="Agenda"/>
    <!-- Tabela principal - Agenda - mostra os clientes e horários -->
+    
+    <v-container grid-list-md text-xs-center>
     <v-data-table
     :headers="headers"
     :items="agendas"
@@ -12,7 +14,7 @@
     <template v-slot:items="props">
       <td width="10px">{{ props.item.horario }}</td>      
       <td class="text-xs-center">{{ props.item.cliente1}}</td>      
-      <td class="text-xs-left"> <router-link :to="{name: 'cadastroAgenda'}"><v-icon small class="mr-2">edit</v-icon> </router-link>                                
+      <td class="text-xs-left"> <router-link :to="{name: 'cadastroAgenda', params: {id: props.item.id}}"><v-icon small class="mr-2">edit</v-icon> </router-link>                                
                                 <v-icon small @click="deleteItem(props.item)">delete</v-icon>
                                 <v-icon small class="mr-2" @click="abrirTelaRecebimento()"> attach_money</v-icon></td>      
       <td class="text-xs-center">{{ props.item.cliente2 }}</td>      
@@ -20,7 +22,8 @@
                                <v-icon small @click="deleteItem(props.item)">delete</v-icon>
                                <v-icon small class="mr-2" @click="abrirTelaRecebimento()">attach_money</v-icon></td>
     </template>
-  </v-data-table>    
+  </v-data-table> 
+    </v-container>   
     
     <!-- Card para cadastro ou edição da agenda -->
     <v-dialog v-model="dialog" max-width="800px" persistent >
@@ -70,9 +73,9 @@
   
     <!-- Card para cadastro ou edição do recebimento-->
      <!-- max-width="800px" -->
-    <v-dialog v-model="dialog2" fullscreen>
+    <v-dialog v-model="dialog2" >
         <v-card>          
-          <v-toolbar color="blue darken-3" dark height="40px">
+          <v-toolbar color="primary darken-3" dark height="40px">
             <v-toolbar-title>Recebimento</v-toolbar-title>
           </v-toolbar>           
 
@@ -173,6 +176,7 @@
 
 import TabelaProduto from '@/components/TabelaProdutoServico'
 import Panel from '@/components/Panel'
+import Titulo from '@/components/Titulo'
 //import TabelaRecebimento from '@/components/TabelaRecebimento'
 //import TelaTabelaRecebimento from '@/components/TelaTabelaRecebimento'
 
@@ -422,6 +426,7 @@ import Panel from '@/components/Panel'
     components: {
       'tabela-produto': TabelaProduto,
       'panel-produto': Panel,
+      'titulo': Titulo,
      // 'tabela-recebimento': TabelaRecebimento,
       // eslint-disable-next-line
      // 'tela-tabela-recebimento': TelaTabelaRecebimento

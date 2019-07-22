@@ -1,15 +1,15 @@
-<template>   
-    <div style="background-color: #E6E6E6">
-          <!-- color="blue darken-3" -->
-          <v-toolbar color="secondary light white--text" height="40px">
-            <v-toolbar-title>Cadastro agenda</v-toolbar-title>
-          </v-toolbar>
-          <v-container grid-list-md text-xs-center>
-           
+<template>     
+    <div class="background" >
+          <titulo titulo="Cadastro agenda"/>
+
+          <!-- <span class="title">Cadastro agenda</span>
+          <v-divider></v-divider>          -->
+
+          <v-container grid-list-md text-xs-center>           
             <v-layout row wrap>
               <!-- primeira linha -->              
                 <v-flex xs2>
-                  <v-text-field label="Data"></v-text-field>
+                  <v-text-field label="Data" v-model="this.agendas[0].data"></v-text-field>
                 </v-flex>  
                 <v-flex xs1>
                   <v-text-field  label="Horário"></v-text-field>
@@ -30,13 +30,13 @@
                 
                    
             </v-layout>
-          </v-container>  
+          </v-container>          
 
     
            <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn dark color="primary " @click="gravarAgenda">Gravar</v-btn>
-            <v-btn color="primary darken-1" flat @click="abrirTelaRecebimento()">Recebimento</v-btn>
+            <v-btn outline color="primary darken-1" flat @click="abrirTelaRecebimento()">Recebimento</v-btn>
             <v-btn color="primary darken-1" flat @click="close">Cancelar</v-btn>
           </v-card-actions>
     
@@ -49,14 +49,47 @@
 
 import TabelaProduto from '@/components/TabelaProdutoServico'
 import Panel from '@/components/Panel'
+import Titulo from '@/components/Titulo'
 
 export default {
+  props: [
+    'horario'
+  ],  
   data: () => ({
-
-  }),
+    agendas: [
+            {
+              id: '1',
+              data: '02/07/2019',            
+              horario: '10:00',  
+              barbeiro: 'Barber_1',
+              cdcliente: '01',          
+              cliente1: 'Wallzin da Silva',            
+              cliente2: '*** Vago ***',
+            },          
+            {
+              id: '2',
+              horario: '10:30',            
+              cliente1: '*** Vago ***',            
+              cliente2: 'Pedrim da Silva Sauro',            
+            },
+            {
+              id: '3',
+              horario: '11:00',            
+              cliente1: '*** Vago ***',            
+              cliente2: '*** Vago ***',            
+            },
+            {
+              id: '4',
+              horario: '11:30',            
+              cliente1: '*** Vago ***',            
+              cliente2: '*** Vago ***',            
+            }          
+          ],
+      }),
   components: {
     'tabela-produto': TabelaProduto,
-    'panel-produto': Panel
+    'panel-produto': Panel,
+    'titulo': Titulo,
   },
   methods: {
     gravarAgenda(){
@@ -68,7 +101,17 @@ export default {
     },
     close() {
 
-    }
+    }   
+    
   }
 }
 </script>
+
+<style>
+.title{
+  margin-top: 10px;
+  margin-left: 10px;
+}
+</style>
+
+

@@ -5,6 +5,8 @@ import GridAgenda from '@/components/GridAgenda'
 import CadastroCliente from '@/components/CadastroCliente'
 import CadastroUsuario from '@/components/CadastroUsuario'
 import CadastroAgenda from '@/components/CadastroAgenda'
+import CadastroAgendaProduto from '@/components/CadastroAgendaProduto'
+
 
 
 Vue.use(Router)
@@ -18,19 +20,29 @@ export default new Router({
             component: GridAgenda
         },
         {
-            path: '/cadastro/cliente',
+            path: '/Cadastro/Cliente',
             name: 'cadastroCliente',
             component: CadastroCliente,
         },
         {
-            path: '/agenda/cadastro',
+            path: '/Agenda/Cadastro/',
             name: 'cadastroAgenda',
             component: CadastroAgenda,
+            props: {
+                horario: ':hora'
+            }
         },
         {
-            path: '/agenda/cadastro',
+            path: '/Cadastro/Usuario',
             name: 'cadastroUsuario',
             component: CadastroUsuario,
-        }
+        },
+        {
+            path: '/Agenda/Cadastro/Produto',
+            name: 'cadastroAgendaProduto',
+            component: CadastroAgendaProduto,
+        },
+
+
     ]
 });

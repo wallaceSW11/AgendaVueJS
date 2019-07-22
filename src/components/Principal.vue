@@ -1,7 +1,7 @@
 <template>
   <v-app id="inspire">
     <!-- menu superior -->
-<!-- color="blue darken-3"   color="grey darken-3" -->
+    <!-- color="blue darken-3"   color="grey darken-3" -->
     <v-toolbar :clipped-left="$vuetify.breakpoint.lgAndUp" color="primary" dark app fixed>
       <v-toolbar-side-icon @click.stop.prevent="mini = !mini"></v-toolbar-side-icon>
       <v-toolbar-title>Schedule</v-toolbar-title>
@@ -14,11 +14,12 @@
 
     <!-- menu lateral - esquerdo -->
 
+<!--  -->
     <v-navigation-drawer
       v-model="drawer"
-      :mini-variant.sync="mini"
+      :mini-variant="mini"
       :clipped="$vuetify.breakpoint.lgAndUp"
-      width='220px'
+      width="220px"
       fixed
       app
     >
@@ -32,7 +33,8 @@
           </v-list-tile>
         </router-link>
 
-        <v-list-group prepend-icon="account_circle" value="true" v-model="cadastroAtivo">
+        
+         <v-list-group prepend-icon="account_circle" value="true" v-model="cadastroAtivo" @click.stop.prevent="mini = !mini">
           <template v-slot:activator>
             <v-list-tile>
               <v-list-tile-title>Cadastro</v-list-tile-title>
@@ -74,6 +76,7 @@
             </v-list-tile>
           </v-list-group>
         </v-list-group>
+ 
       </v-list>
     </v-navigation-drawer>
 
@@ -109,27 +112,17 @@ export default {
   }),
   watch: {
     mini() {
-       
-            this.cadastroAtivo = false,
-            this.cadastroPessoaAtivo = false,
-            this.cadastroPagamentoAtivo = false
-          
+      (this.cadastroAtivo = false),
+        (this.cadastroPessoaAtivo = false),
+        (this.cadastroPagamentoAtivo = false);
     }
   },
   props: {
     source: String
   },
   components: {
-    //'menu-lateral' : MenuLateral
   }
-  // methods: {
-  //   //mudarpara(campo) {
-  //    // console.log('passei aqui: ' + campo)
 
-  //     //console.log(window.location.pathname)
-
-  //     //window.location.href = (window.location.pathname+ "cadastro/cliente")
-  //   }
 };
 </script>
 
@@ -137,10 +130,6 @@ export default {
 <style type="text/css">
 a:link {
   text-decoration: none;
-
-  /* font-family: Arial, Helvetica, sans-serif;	 */
-  /* font-size: 12px;	color: black;	 */
-  /* text-decoration: none;     */
 }
 .link {
   color: black;
