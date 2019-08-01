@@ -26,7 +26,47 @@
                 </v-flex>
               <!-- terceira linha -->                
                 <panel-produto titulo="Produto / Serviço"/>
-                <tabela-produto/>
+                <v-flex xs12>
+                  <!-- :items="produtos"  -->
+                <v-data-table :headers="headers" class="elevation-1" hide-actions>
+                  <tabela-produto/>
+      
+      <!-- <template v-slot:items="props">
+        <td width="10px">{{ props.item.codigo }}</td>
+        <td class="text-xs-left">{{ props.item.nome}}</td>
+        <td width="10px">{{ props.item.qtitem }}</td>
+        <td width="10px">{{ props.item.vlunitario }}</td>
+        <td width="10px">{{ props.item.vlitem }}</td>
+        <td width="100px">
+          <v-icon small class="mr-2" @click="editItem(props.item)">edit</v-icon>
+          <v-icon small @click="deleteItem(props.item)">delete</v-icon>
+        </td>
+      </template> -->
+
+      <template v-slot:footer>
+        <tr>
+          <td class="text-xs-left" colspan="6">
+            <v-btn outline small fab color="primary" @click="addProduto()">
+              <v-icon dark>add</v-icon>
+            </v-btn>            
+          </td>
+        </tr>
+        <tr>
+          <td>Totais:</td>
+          <td></td>
+          <td>{{quantidadeTotalAgenda}}</td>
+          <td></td>
+          <td>{{valorTotalAgenda}}</td>
+          <td></td>
+        </tr>
+      </template>
+    </v-data-table>
+  </v-flex>
+                
+                
+                
+                
+                <!-- <tabela-produto/> -->
                 
                    
             </v-layout>
@@ -53,9 +93,9 @@ import Titulo from '@/components/Titulo'
 
 export default {
   props: [
-    'horario'
+    'id'
   ],  
-  data: () => ({
+  data: () => ({    
     agendas: [
             {
               id: '1',
@@ -85,7 +125,45 @@ export default {
               cliente2: '*** Vago ***',            
             }          
           ],
-      }),
+      
+      headers: [
+      {
+        text: "Código",
+        align: "left",
+        sortable: false,
+        value: "codigo"
+      },
+      {
+        text: "Descrição",
+        align: "left",
+        value: "barbeiro1",
+        sortable: false
+      },
+      {
+        text: "Qt. Item",
+        align: "center",
+        value: "barbeiro1",
+        sortable: false
+      },
+      {
+        text: "Vl. Unitário",
+        align: "center",
+        value: "barbeiro2",
+        sortable: false
+      },
+      {
+        text: "Vl. Item",
+        align: "center",
+        value: "barbeiro1",
+        sortable: false
+      },
+      {
+        text: "",
+        align: "center",
+        value: "barbeiro1",
+        sortable: false
+      }
+      ]}),
   components: {
     'tabela-produto': TabelaProduto,
     'panel-produto': Panel,

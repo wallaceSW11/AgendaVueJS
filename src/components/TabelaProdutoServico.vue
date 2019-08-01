@@ -1,5 +1,21 @@
 <template>
-  <v-flex xs12>
+   <v-flex xs12>
+    
+    <template v-slot:items="produtos">
+        <td width="10px">{{ produtos.item.codigo }}</td>
+        <td class="text-xs-left">{{ props.item.nome}}</td>
+        <td width="10px">{{ props.item.qtitem }}</td>
+        <td width="10px">{{ props.item.vlunitario }}</td>
+        <td width="10px">{{ props.item.vlitem }}</td>
+        <td width="100px">
+          <v-icon small class="mr-2" @click="editItem(props.item)">edit</v-icon>
+          <v-icon small @click="deleteItem(props.item)">delete</v-icon>
+        </td>
+      </template>
+   </v-flex>
+
+
+<!--
     <v-data-table :headers="headers" :items="produtos" class="elevation-1" hide-actions>
       <template v-slot:items="props">
         <td width="10px">{{ props.item.codigo }}</td>
@@ -31,12 +47,12 @@
         </tr>
       </template>
     </v-data-table>
-  </v-flex>
+  </v-flex> -->
 </template>
 
 <script>
-export default {
-  data: () => ({
+export default {  
+  data: () => ({    
     headers: [
       {
         text: "Código",
@@ -96,7 +112,9 @@ export default {
   }),
   methods: {
     addProduto(){
-      this.$router.push({name:'cadastroAgendaProduto'})
+      //this.dialog = true;
+      //this.$router.push({name:'cadastroAgendaProduto'})
+      //this.$router.push({name:'cardProdutoAgenda'})
     }
   }
 };

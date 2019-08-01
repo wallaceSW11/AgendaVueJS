@@ -6,6 +6,7 @@ import CadastroCliente from '@/components/CadastroCliente'
 import CadastroUsuario from '@/components/CadastroUsuario'
 import CadastroAgenda from '@/components/CadastroAgenda'
 import CadastroAgendaProduto from '@/components/CadastroAgendaProduto'
+import CardProdutoAgenda from '@/components/CardProdutoAgenda'
 
 
 
@@ -25,12 +26,10 @@ export default new Router({
             component: CadastroCliente,
         },
         {
-            path: '/Agenda/Cadastro/',
+            path: '/Agenda/Cadastro/:id',
             name: 'cadastroAgenda',
             component: CadastroAgenda,
-            props: {
-                horario: ':hora'
-            }
+            props: true
         },
         {
             path: '/Cadastro/Usuario',
@@ -42,7 +41,12 @@ export default new Router({
             name: 'cadastroAgendaProduto',
             component: CadastroAgendaProduto,
         },
-
+        {
+            path: '/Agenda/Cadastro/Produto',
+            name: 'cardProdutoAgenda',
+            component: CardProdutoAgenda,
+        }
 
     ]
+
 });

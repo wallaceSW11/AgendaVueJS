@@ -1,6 +1,6 @@
 <template>
   <div class="background">
-    <titulo titulo="Agenda (Alteração) - Produto" />
+    <titulo titulo="Agenda - Produto" />
     <v-form v-model="valid">
       <v-container>
         <v-layout>
@@ -32,9 +32,9 @@
 
       <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn dark color="blue " @click="gravarAgenda">Gravar</v-btn>
-            <v-btn color="blue darken-1" flat @click="abrirTelaRecebimento()">Recebimento</v-btn>
-            <v-btn color="blue darken-1" flat @click="close">Cancelar</v-btn>
+            <v-btn color="primary" @click="gravarAgendaProduto()">OK</v-btn>
+            <v-btn outline color="secondary" flat @click="close()">Cancelar</v-btn>
+           
           </v-card-actions>
     </v-form>
   </div>
@@ -61,6 +61,11 @@ export default {
   }),
   components: {
     titulo: Titulo
+  },
+  methods: {
+    gravarAgendaProduto() {
+      this.$router.push({name: 'agenda'})
+    }
   }
 };
 </script>
