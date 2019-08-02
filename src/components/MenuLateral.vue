@@ -96,6 +96,17 @@ export default {
     pagamentos: [["Forma", "money"], ["Prazo", "money"]]
   }),
   watch: {
+      fechadoCadastro() {
+          if (this.compacto) {
+              this.mini = false
+          }
+          console.log("Mini: " + this.mini)
+          console.log("compacto: " + this.compacto)
+          console.log("fechado: "+this.fechado)
+           
+          
+      }
+
     // mini() {
     //   (this.cadastroAtivo = false),
     //     (this.cadastroPessoaAtivo = false),
