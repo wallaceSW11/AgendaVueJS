@@ -26,7 +26,7 @@ export default new Router({
             component: CadastroCliente,
         },
         {
-            path: '/Agenda/Cadastro/:id',
+            path: '/Agenda/Cadastro/',
             name: 'cadastroAgenda',
             component: CadastroAgenda,
             props: true

@@ -1,8 +1,18 @@
 <template>
   <v-app id="inspire">
+    <menu-superior @toggle-menu="toggleMenuLateral"/>
+    <menu-lateral 
+      :compacto="mini" 
+      
+      :fechado-pessoa="cadastroPessoaAtivo"
+      :fechado-pagamento="cadastroPagamentoAtivo" />
+    <!-- :fechado-cadastro="cadastroAtivo" -->
+    
+    <!-- <menu-lateral @toggle-menu="toggleMenuLateral"/> -->
+
     <!-- menu superior -->
     <!-- color="blue darken-3"   color="grey darken-3" -->
-    <v-toolbar :clipped-left="$vuetify.breakpoint.lgAndUp" color="primary" dark app fixed>
+    <!-- <v-toolbar :clipped-left="$vuetify.breakpoint.lgAndUp" color="primary" dark app fixed>
       <v-toolbar-side-icon @click.stop.prevent="mini = !mini"></v-toolbar-side-icon>
       <v-toolbar-title>Schedule</v-toolbar-title>
       <v-spacer></v-spacer>
@@ -10,12 +20,12 @@
         <v-btn flat>Novo</v-btn>
         <v-btn flat>Pesquisar</v-btn>
       </v-toolbar-items>
-    </v-toolbar>
+    </v-toolbar> -->
 
     <!-- menu lateral - esquerdo -->
 
 <!--  -->
-    <v-navigation-drawer
+    <!-- <v-navigation-drawer
       v-model="drawer"
       :mini-variant="mini"
       :clipped="$vuetify.breakpoint.lgAndUp"
@@ -78,7 +88,7 @@
         </v-list-group>
  
       </v-list>
-    </v-navigation-drawer>
+    </v-navigation-drawer> -->
 
     <!-- Veiw Principal -->
     <v-content>
@@ -96,10 +106,13 @@
 </template>
 
 <script>
+import MenuSuperior from '@/components/MenuSuperior'
+import MenuLateral from '@/components/MenuLateral'
+
 export default {
   data: () => ({
     dialog: false,
-    drawer: true,
+   // drawer: true,
     mini: true,
     cadastroAtivo: false,
     cadastroPessoaAtivo: false,
@@ -109,18 +122,26 @@ export default {
       ["Usuário", "people", "cadastroUsuario"]
     ],
     pagamentos: [["Forma", "money"], ["Prazo", "money"]]
-  }),
+  }),  
   watch: {
     mini() {
       (this.cadastroAtivo = false),
         (this.cadastroPessoaAtivo = false),
         (this.cadastroPagamentoAtivo = false);
+       console.log('passei no watch mini principal')
     }
   },
   props: {
     source: String
   },
   components: {
+    'menu-superior': MenuSuperior,
+    'menu-lateral': MenuLateral
+  },
+  methods: {
+    toggleMenuLateral(payload) {
+      this.mini = payload.toggle
+    }
   }
 
 };

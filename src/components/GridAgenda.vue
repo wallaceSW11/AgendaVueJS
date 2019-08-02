@@ -165,7 +165,8 @@
       </v-dialog>
 
   <!-- <v-btn color="blue " @click="calcularTotalRecebimento">Click Here</v-btn> -->
-
+<!-- <br>
+ <componente-pai></componente-pai> -->
   </div>
 </template>
 
@@ -179,6 +180,8 @@ import Panel from '@/components/Panel'
 import Titulo from '@/components/Titulo'
 //import TabelaRecebimento from '@/components/TabelaRecebimento'
 //import TelaTabelaRecebimento from '@/components/TelaTabelaRecebimento'
+//import ComponentePai from '@/components/ComponentePai'
+
 
   export default {
     data: () => ({
@@ -427,6 +430,7 @@ import Titulo from '@/components/Titulo'
       'tabela-produto': TabelaProduto,
       'panel-produto': Panel,
       'titulo': Titulo,
+      //'componente-pai': ComponentePai,
      // 'tabela-recebimento': TabelaRecebimento,
       // eslint-disable-next-line
      // 'tela-tabela-recebimento': TelaTabelaRecebimento

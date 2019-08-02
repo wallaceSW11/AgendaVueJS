@@ -1,8 +1,8 @@
 <template>
    <v-flex xs12>
     
-    <template v-slot:items="produtos">
-        <td width="10px">{{ produtos.item.codigo }}</td>
+    <!-- <template :items="produtos">
+        <td width="10px">{{ props.item.codigo }}</td>
         <td class="text-xs-left">{{ props.item.nome}}</td>
         <td width="10px">{{ props.item.qtitem }}</td>
         <td width="10px">{{ props.item.vlunitario }}</td>
@@ -12,10 +12,10 @@
           <v-icon small @click="deleteItem(props.item)">delete</v-icon>
         </td>
       </template>
-   </v-flex>
+   </v-flex> -->
 
 
-<!--
+
     <v-data-table :headers="headers" :items="produtos" class="elevation-1" hide-actions>
       <template v-slot:items="props">
         <td width="10px">{{ props.item.codigo }}</td>
@@ -47,7 +47,7 @@
         </tr>
       </template>
     </v-data-table>
-  </v-flex> -->
+  </v-flex>
 </template>
 
 <script>

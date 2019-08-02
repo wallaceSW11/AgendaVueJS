@@ -11,7 +11,7 @@
                 <v-flex xs2>
                   <v-text-field label="Data" v-model="this.agendas[0].data"></v-text-field>
                 </v-flex>  
-                <v-flex xs1>
+                <v-flex xs1>                                                                                                                                                               
                   <v-text-field  label="Horário"></v-text-field>
                 </v-flex>
                 <v-flex xs9>
@@ -28,7 +28,7 @@
                 <panel-produto titulo="Produto / Serviço"/>
                 <v-flex xs12>
                   <!-- :items="produtos"  -->
-                <v-data-table :headers="headers" class="elevation-1" hide-actions>
+                <v-data-table :headers="headers"  class="elevation-1" hide-actions>
                   <tabela-produto/>
       
       <!-- <template v-slot:items="props">
@@ -92,7 +92,7 @@ import Panel from '@/components/Panel'
 import Titulo from '@/components/Titulo'
 
 export default {
-  props: [
+  props: [                                                                                                                                                                                                                              
     'id'
   ],  
   data: () => ({    
