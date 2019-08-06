@@ -19,8 +19,7 @@ export default {
   }),
   methods: {
     enviarParaPai(){
-      this.amostrar = true,
-      console.log('amostrar filho: ' + this.amostrar),
+      this.amostrar = true,      
       this.$emit('evento-do-filho', {minhaMsg: this.msg, meuHorario: this.horario, visualizar: this.amostrar}),
       this.msg = ''      
     }

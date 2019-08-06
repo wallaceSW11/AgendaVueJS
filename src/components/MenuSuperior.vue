@@ -16,7 +16,7 @@
 <script>
 export default {
     data:() => ({
-        mini : false
+        mini : true
     }),
     methods: {
         toggle(){            

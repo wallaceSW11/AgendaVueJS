@@ -21,14 +21,9 @@
         prepend-icon="account_circle"
         value="true"
         v-model="fechadoCadastro"
-        @click.stop.prevent="mini = !mini"
+        @click.stop.prevent="toggle"
       >
-
-      <!-- v-model="true"    
-       -->
-
-
-        <template v-slot:activator>
+          <template v-slot:activator>
           <v-list-tile>
             <v-list-tile-title>Cadastro</v-list-tile-title>
           </v-list-tile>
@@ -76,19 +71,17 @@
 <script>
 export default {
   props: {
-    compacto: Boolean,
-    fechadoCadastro: Boolean,
-    fechadoPessoa: Boolean,
-    fechadoPagamento: Boolean
+    compacto: {
+      type: Boolean,
+      default: true
+    }
   },
   data: () => ({
+    fechadoCadastro: false,
+    fechadoPessoa: false,
+    fechadoPagamento: false,
     fechado: false,
     drawer: true,
-    fechadoCadastro: false,
-    cadastroAtivo: false,
-    cadastroPessoaAtivo: false,
-    cadastroPagamentoAtivo: false,
-    mini: false,
     cadastros: [
       ["Cliente", "people_outline", "cadastroCliente"],
       ["Usuário", "people", "cadastroUsuario"]
@@ -96,30 +89,24 @@ export default {
     pagamentos: [["Forma", "money"], ["Prazo", "money"]]
   }),
   watch: {
-      fechadoCadastro() {
-          if (this.compacto) {
-              this.mini = false
-          }
-          console.log("Mini: " + this.mini)
-          console.log("compacto: " + this.compacto)
-          console.log("fechado: "+this.fechado)
-           
-          
+    compacto() {
+      if (this.compacto) {
+        this.menuFechado();
       }
-
-    // mini() {
-    //   (this.cadastroAtivo = false),
-    //     (this.cadastroPessoaAtivo = false),
-    //     (this.cadastroPagamentoAtivo = false);
-    //    console.log('passei no watch mini')
-    // }
     }
-  //   methods: {
-  //         toggle(){
-  //             this.mini = !this.mini,
-  //             this.$emit('toggle-menu', {toggle: this.mini})
-  //         }
-  //     }
-}
+  },
+  methods: {
+    menuFechado() {
+      (this.fechadoCadastro = false),
+        (this.fechadoPessoa = false),
+        (this.fechadoPagamento = false);
+    },
+    toggle() {
+      if (this.fechadoCadastro == false) {
+        this.$emit("toggle-menu-lateral", { toggle: this.fechadoCadastro });
+      }
+    }
+  }
+};
 </script>
 
